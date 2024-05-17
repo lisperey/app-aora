@@ -1,22 +1,43 @@
-import { View, Text, ScrollView, Image } from 'react-native';
+import { View, Text, ScrollView, Image, Alert } from 'react-native';
 import { React, useState} from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { images } from '../../constants';
 import FormField from '../../components/FormField';
 import CustomButton from '../../components/CustomButton';
-import { Link } from 'expo-router';
+import { Link, router } from 'expo-router';
+import { createUser } from '../../lib/appwrite';
+import { useGlobalContext } from "../../context/GlobalProvider";
+
 
 
 export default function SignUp() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { setUser, setIsLogged } = useGlobalContext();
   const [form, setForm] = useState({
     username: '',
     email: '',
     password: ''
   });
-  const submit = () =>{
 
+  const submit = async () =>{
+    if(form.username === "" || form.email === "" || form.password === ""){
+      Alert.alert('Error', 'Preencha todos os campos');
+    }
+
+    setIsSubmitting(true);
+
+    try{
+      const result = await createUser(form.username, form.email, form.password);
+      setUser(result);
+      setIsLogged(true);
+      router.replace('/home');
+    }catch(error){
+      Alert.alert('Error', error.message);
+    } finally{
+      setIsSubmitting(false);
+    }
   };
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  
 
   return (
     <SafeAreaView className="bg-primary h-full">
@@ -33,22 +54,20 @@ export default function SignUp() {
           <FormField 
             title="Username"
             value={form.username}
-            handleCHangeText={(e) => setForm({...form, username: e})}
+            handleChangeText={e => setForm({ ...form, username: e})}
             otherStyles="mt-10"
           />
           <FormField 
             title="Email"
             value={form.email}
-            handleCHangeText={(e) => setForm({...form, email: e})}
+            handleChangeText={e => setForm({...form, email: e})}
             otherStyles="mt-7"
             keyboardType="email-address"
-            
-
           />
           <FormField 
             title="Senha"
             value={form.password}
-            handleChangeText={(e) => setForm({...form, password: e})}
+            handleChangeText={e => setForm({...form, password: e})}
             otherStyles="mt-7"
           />
           <CustomButton 

@@ -15,8 +15,9 @@ export default function FormField({ title, value, handleChangeText, placeholder,
             value={value}
             placeholder={placeholder}
             placeholderTextColor="#7b7b8d"
-            onChange={handleChangeText}
+            onChangeText={handleChangeText}
             secureTextEntry={title === 'Senha' && !showPassword}
+            {...props}
 
         />
 

@@ -5,8 +5,13 @@ import CustomButton from '../components/CustomButton';
 
 import { images } from '../constants'
 import { StatusBar } from 'expo-status-bar';
+import { useGlobalContext } from "../context/GlobalProvider";
+
 
 export default function HomeScreen() {
+  const { isLoading, isLoggedIn } = useGlobalContext();
+
+  if(!isLoading && isLoggedIn) return <Redirect href="/home"/>
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView contentContainerStyle={{ height: '100%' }}>
@@ -37,7 +42,7 @@ export default function HomeScreen() {
             Onde a criatividade encontra a inovação: embarque em uma jornada de exploração sem fim com Aora
           </Text>
           <CustomButton 
-            title="Continue with Email"
+            title="Continuar com e-mail"
             handlePress={() => router.push('/sign-in')}
             containerStyles="w-full mt-7"
             isLoading={false}
