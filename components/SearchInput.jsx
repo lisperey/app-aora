@@ -11,7 +11,7 @@ export default function SearchInput({ title, value, handleChangeText, placeholde
             <TextInput
                 className="text-base mt-0.5 text-white flex-1 font-pregular"
                 value={value}
-                placeholder={placeholder}
+                placeholder="Buscar vídeo"
                 placeholderTextColor="#7b7b8d"
                 onChangeText={handleChangeText}
             />
