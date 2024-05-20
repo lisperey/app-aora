@@ -14,7 +14,7 @@ export default function SignIn() {
     email: '',
     password: ''
   });
-  const {setUser, setIsLogged } = useGlobalContext();
+  const {setUser, setIsLoggedIn } = useGlobalContext();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const submit = async () => {
@@ -28,7 +28,7 @@ export default function SignIn() {
       await signIn(form.email, form.password);
       const result = await getCurrentUser();
       setUser(result);
-      setIsLogged(true);
+      setIsLoggedIn(true);
       Alert.alert("Success", "Logado com sucesso");
       router.replace('/home');
     }catch(error){

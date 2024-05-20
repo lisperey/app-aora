@@ -12,7 +12,7 @@ import { useGlobalContext } from "../../context/GlobalProvider";
 
 export default function SignUp() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { setUser, setIsLogged } = useGlobalContext();
+  const { setUser, setIsLoggedIn } = useGlobalContext();
   const [form, setForm] = useState({
     username: '',
     email: '',
@@ -29,7 +29,7 @@ export default function SignUp() {
     try{
       const result = await createUser(form.username, form.email, form.password);
       setUser(result);
-      setIsLogged(true);
+      setIsLoggedIn(true);
       router.replace('/home');
     }catch(error){
       Alert.alert('Error', error.message);
