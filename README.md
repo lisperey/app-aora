@@ -1,50 +1,76 @@
-# Welcome to your Expo app 👋
+# Aplicação Mobile de Publicação de Vídeos
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Sumário
 
-## Get started
+1. [Introdução](#introdução)
+2. [Funcionalidades](#funcionalidades)
+3. [Tecnologias Utilizadas](#tecnologias-utilizadas)
+4. [Pré-requisitos](#pré-requisitos)
+5. [Instalação](#instalação)
+6. [Configuração](#configuração)
+7. [Uso](#uso)
+8. [Estrutura do Projeto](#estrutura-do-projeto)
+9. [Contribuição](#contribuição)
+10. [Licença](#licença)
 
-1. Install dependencies
+## Introdução
 
-   ```bash
-   npm install
-   ```
+Esta é uma aplicação mobile desenvolvida com React Native utilizando Expo para publicação de vídeos, similar a uma rede social. Os usuários podem criar contas, fazer login, publicar vídeos, visualizar vídeos de outros usuários, curtir e comentar. O backend da aplicação é gerenciado pelo Appwrite.
 
-2. Start the app
+## Funcionalidades
 
-   ```bash
-    npx expo start
-   ```
+- Cadastro e autenticação de usuários.
+- Publicação de vídeos.
+- Feed de vídeos publicados por outros usuários.
+- Perfil de usuário.
+- Upload e reprodução de vídeos.
 
-In the output, you'll find options to open the app in a
+## Tecnologias Utilizadas
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- **Frontend**: React Native, Expo
+- **Backend**: Appwrite
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Pré-requisitos
 
-## Get a fresh project
+- Node.js (versão 14 ou superior)
+- Expo CLI
+- Conta no Appwrite e instância configurada
 
-When you're ready, run:
+## Instalação
 
-```bash
-npm run reset-project
-```
+1. Clone o repositório para a sua máquina local:
+    ```sh
+    git clone https://github.com/seu-usuario/seu-repositorio.git
+    cd seu-repositorio
+    ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+2. Instale as dependências do projeto:
+    ```sh
+    npm install
+    ```
 
-## Learn more
+3. Instale a CLI do Expo, se ainda não tiver:
+    ```sh
+    npm install -g expo-cli
+    ```
 
-To learn more about developing your project with Expo, look at the following resources:
+## Configuração
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+1. Crie uma conta no appwrite free e crie o banco de dados para a aplicação
 
-## Join the community
+2. Certifique-se de que seu backend do Appwrite está configurado corretamente, com os seguintes serviços ativados:
+    - Autenticação
+    - Banco de dados
+    - Armazenamento (para vídeos)
+    - Funções (opcional, para tarefas específicas)
 
-Join our community of developers creating universal apps.
+## Uso
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+1. Inicie o projeto Expo:
+    ```sh
+    expo start
+    ```
+
+2. Use o aplicativo Expo Go em seu dispositivo móvel para escanear o QR code fornecido e testar a aplicação.
+
+
